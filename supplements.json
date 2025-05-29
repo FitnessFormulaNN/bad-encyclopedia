@@ -1,0 +1,113 @@
+[
+  {
+    "id": 1,
+    "name": "Витамин C",
+    "category": "Витамины",
+    "type": "Водорастворимый",
+    "description": "Антиоксидант, поддерживает иммунную систему, участвует в синтезе коллагена.",
+    "indications": [
+      "Снижение иммунитета",
+      "Усталость",
+      "Профилактика простуды"
+    ],
+    "contraindications": [
+      "Язвенная болезнь желудка"
+    ],
+    "dosage": "500-1000 мг в сутки",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Ascorbic_acid_structure.svg"
+  },
+  {
+    "id": 2,
+    "name": "Витамин D3",
+    "category": "Витамины",
+    "type": "Жирорастворимый",
+    "description": "Регулирует обмен кальция и фосфора, поддерживает здоровье костей и иммунитет.",
+    "indications": [
+      "Дефицит витамина D",
+      "Остеопороз",
+      "Слабый иммунитет"
+    ],
+    "contraindications": [
+      "Гиперкальциемия"
+    ],
+    "dosage": "1000-4000 МЕ в сутки",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/97/Vitamin_D3.svg"
+  },
+  {
+    "id": 3,
+    "name": "Магний",
+    "category": "Минералы",
+    "type": "Макроэлемент",
+    "description": "Участвует в энергетическом обмене, влияет на нервную и мышечную системы.",
+    "indications": [
+      "Судороги мышц",
+      "Повышенная утомляемость",
+      "Стресс"
+    ],
+    "contraindications": [
+      "Тяжелая почечная недостаточность"
+    ],
+    "dosage": "200-400 мг в сутки",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Magnesium-3D-balls.png"
+  },
+  {
+    "id": 4,
+    "name": "Омега-3 (EPA и DHA)",
+    "category": "Жирные кислоты",
+    "type": "Полиненасыщенные",
+    "description": "Поддерживают сердечно-сосудистую систему, уменьшают воспаления.",
+    "indications": [
+      "Сердечная недостаточность",
+      "Воспалительные процессы",
+      "Высокий уровень холестерина"
+    ],
+    "contraindications": [
+      "Аллергия на рыбу"
+    ],
+    "dosage": "1000-3000 мг в сутки",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Fish_oil_capsules.JPG"
+  },
+  {
+    "id": 5,
+    "name": "L-Лизин",
+    "category": "Аминокислоты",
+    "type": "Незаменимая аминокислота",
+    "description": "Участвует в синтезе белков, поддерживает иммунитет и восстановление тканей.",
+    "indications": [
+      "Герпес",
+      "Проблемы с ростом у детей",
+      "Повышенная физическая нагрузка"
+    ],
+    "contraindications": [],
+    "dosage": "500-3000 мг в сутки",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/L-Lysine_structure.svg"
+  },
+  {
+    "id": 6,
+    "name": "Экстракт куркумы",
+    "category": "Растительные экстракты",
+    "type": "Противовоспалительное средство",
+    "description": "Обладает антиоксидантными и противовоспалительными свойствами.",
+    "indications": [
+      "Воспалительные процессы",
+      "Артрит",
+      "Поддержка пищеварения"
+    ],
+    "contraindications": [
+      "Желчнокаменная болезнь"
+    ],
+    "dosage": "500-1000 мг куркумина в сутки",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/92/Turmeric_root_and_powder.jpg"
+  },
+  {
+    "id": 7,
+    "name": "",
+    "category": "",
+    "type": "",
+    "description": "",
+    "indications": [],
+    "contraindications": [],
+    "dosage": "",
+    "image": ""
+  }
+]
