@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Энциклопедия БАДов</title>
+    <script>
+        async function loadData() {
+            const response = await fetch('data/bads.json');
+            const bads = await response.json();
+            
+            document.getElementById('bad-list').innerHTML = bads.map(bad => `
+                <div class="bad-card">
+                    <h3>${bad.name}</h3>
+                    <p>${bad.description}</p>
+                    <img src="${bad.image}" alt="${bad.name}">
+                </div>
+            `).join('');
+        }
+        loadData();
+    </script>
+    <style>
+        .bad-card { border: 1px solid #ddd; padding: 15px; margin: 10px; }
+        img { max-width: 200px; }
+    </style>
+</head>
+<body>
+    <h1>Энциклопедия БАДов</h1>
+    <div id="bad-list"></div>
+</body>
+</html>
