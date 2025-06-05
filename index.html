@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Энциклопедия БАДов: найдите информацию о биологически активных добавках для здоровья">
+    <meta name="keywords" content="БАДы, Омега-3, магний, витамин D3, цинк, здоровье, биодобавки, энциклопедия">
+    <title>Энциклопедия БАДов</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --primary-light: #ebf5fb;
+            --secondary: #2ecc71;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --gray: #7f8c8d;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: var(--light);
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: var(--gray);
+        }
+
+        .search-bar {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .preview-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .preview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .preview-header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .preview-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .preview-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .preview-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .no-results {
+            text-align: center;
+            color: var(--gray);
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .search-bar input {
+                max-width: 100%;
+            }
+
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Энциклопедия БАДов</h1>
+            <p>Найдите информацию о биологически активных добавках для вашего здоровья</p>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Поиск по названию БАДа...">
+        </div>
+        <div id="preview-grid" class="preview-grid"></div>
+    </div>
+
+    <script>
+        // Встроенные данные
+        const data = {
+            "bad_cards": [
+{
+      "id": "omega-3",
+      "title": "Омега-3",
+      "subtitle": "ПНЖК для сердца и мозга",
+      "icon": "fas fa-fish",
+      "link": "./omega3.html"
+    },
+    {
+      "id": "magnesium",
+      "title": "Магний",
+      "subtitle": "Для нервов и мышц",
+      "icon": "fas fa-bolt",
+      "link": "./magnesium.html"
+    },
+    {
+      "id": "d3",
+      "title": "Витамин D3",
+      "subtitle": "Иммунитет и кости",
+      "icon": "fas fa-sun",
+      "link": "./d3.html"
+    },
+    {
+      "id": "b12",
+      "title": "Витамин B12",
+      "subtitle": "Энергия и кровь",
+      "icon": "fas fa-battery-three-quarters",
+      "link": "./b12.html"
+    },
+    {
+      "id": "probiotics",
+      "title": "Пробиотики",
+      "subtitle": "Микробиом кишечника",
+      "icon": "fas fa-bacteria",
+      "link": "./probiotics.html"
+    },
+    {
+      "id": "collagen",
+      "title": "Коллаген",
+      "subtitle": "Кожа и суставы",
+      "icon": "fas fa-spa",
+      "link": "./collagen.html"
+    },
+    {
+      "id": "zinc",
+      "title": "Цинк",
+      "subtitle": "Иммунитет и гормоны",
+      "icon": "fas fa-shield-alt",
+      "link": "./zinc.html"
+    },
+    {
+      "id": "curcumin",
+      "title": "Куркумин",
+      "subtitle": "Противовоспалительное",
+      "icon": "fas fa-fire",
+      "link": "./curcumin.html"
+    },
+    {
+      "id": "coq10",
+      "title": "Коэнзим Q10",
+      "subtitle": "Энергия клеток",
+      "icon": "fas fa-heartbeat",
+      "link": "./coq10.html"
+    },
+    {
+      "id": "melatonin",
+      "title": "Мелатонин",
+      "subtitle": "Регулятор сна",
+      "icon": "fas fa-moon",
+      "link": "./melatonin.html"
+    },
+    {
+      "id": "ashwagandha",
+      "title": "Ашваганда",
+      "subtitle": "Антистресс адаптоген",
+      "icon": "fas fa-leaf",
+      "link": "./ashwagandha.html"
+    },
+    {
+      "id": "iron",
+      "title": "Железо",
+      "subtitle": "Кровь и энергия",
+      "icon": "fas fa-tint",
+      "link": "./iron.html"
+    },
+    {
+      "id": "l-carnitine",
+      "title": "L-карнитин",
+      "subtitle": "Энергия и метаболизм",
+      "icon": "fas fa-running",
+      "link": "./l-carnitine.html"
+    },
+    {
+      "id": "vitamin-c",
+      "title": "Витамин C",
+      "subtitle": "Антиоксидант и иммунитет",
+      "icon": "fas fa-virus-slash",
+      "link": "./vitamin-c.html"
+    },
+    {
+      "id": "vitamin-k2",
+      "title": "Витамин K2",
+      "subtitle": "Для костей и сосудов",
+      "icon": "fas fa-bone",
+      "link": "./vitamin-k2.html"
+    },
+    {
+      "id": "calcium",
+      "title": "Кальций",
+      "subtitle": "Кости и зубы",
+      "icon": "fas fa-tooth",
+      "link": "./calcium.html"
+    },
+    {
+      "id": "selenium",
+      "title": "Селен",
+      "subtitle": "Антиоксидант и щитовидка",
+      "icon": "fas fa-shield-virus",
+      "link": "./selenium.html"
+    },
+    {
+      "id": "iodine",
+      "title": "Йод",
+      "subtitle": "Для щитовидной железы",
+      "icon": "fas fa-cloud-sun",
+      "link": "./iodine.html"
+    },
+    {
+      "id": "5-htp",
+      "title": "5-HTP",
+      "subtitle": "Сон и настроение",
+      "icon": "fas fa-cloud-moon",
+      "link": "./5-htp.html"
+    },
+    {
+      "id": "glucosamine",
+      "title": "Глюкозамин",
+      "subtitle": "Здоровье суставов",
+      "icon": "fas fa-joint",
+      "link": "./glucosamine.html"
+    },
+    {
+      "id": "maca",
+      "title": "Мака перуанская",
+      "subtitle": "Энергия и либидо",
+      "icon": "fas fa-heart",
+      "link": "./maca.html"
+    },
+    {
+      "id": "gingko",
+      "title": "Гинкго Билоба",
+      "subtitle": "Кровообращение и память",
+      "icon": "fas fa-brain",
+      "link": "./gingko.html"
+    },
+    {
+      "id": "milk-thistle",
+      "title": "Расторопша",
+      "subtitle": "Поддержка печени",
+      "icon": "fas fa-leaf",
+      "link": "./milk-thistle.html"
+    },
+    {
+      "id": "electrolytes",
+      "title": "Электролиты",
+      "subtitle": "Гидратация и баланс",
+      "icon": "fas fa-tint",
+      "link": "./electrolytes.html"
+    },
+    {
+      "id": "quercetin",
+      "title": "Кверцетин",
+      "subtitle": "Антигистаминный эффект",
+      "icon": "fas fa-wind",
+      "link": "./quercetin.html"
+    },
+    {
+      "id": "berberine",
+      "title": "Берберин",
+      "subtitle": "Обмен веществ",
+      "icon": "fas fa-fire-alt",
+      "link": "./berberine.html"
+    },
+    {
+      "id": "taurine",
+      "title": "Таурин",
+      "subtitle": "Энергия и сердце",
+      "icon": "fas fa-heartbeat",
+      "link": "./taurine.html"
+    }
+    
+            ]
+        };
+
+        function renderPreviews(cards) {
+            const previewGrid = document.getElementById('preview-grid');
+            previewGrid.innerHTML = '';
+
+            if (cards.length === 0) {
+                previewGrid.innerHTML = '<p class="no-results">Ничего не найдено</p>';
+                return;
+            }
+
+            cards.forEach(card => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'preview-card';
+                cardDiv.innerHTML = `
+                    <div class="preview-header">
+                        <i class="${card.icon} preview-icon"></i>
+                        <h2 class="preview-title">${card.title}</h2>
+                        <div class="preview-subtitle">${card.subtitle}</div>
+                    </div>
+                `;
+                cardDiv.addEventListener('click', () => {
+                    window.location.href = card.link;
+                });
+                previewGrid.appendChild(cardDiv);
+            });
+        }
+
+        function handleSearch() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const filteredCards = data.bad_cards.filter(card => 
+                card.title.toLowerCase().includes(searchInput) || 
+                card.subtitle.toLowerCase().includes(searchInput)
+            );
+            renderPreviews(filteredCards);
+        }
+
+        document.getElementById('search-input').addEventListener('input', handleSearch);
+
+        // Инициализация
+        window.onload = () => renderPreviews(data.bad_cards);
+    </script>
+</body>
+</html>
