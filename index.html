@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Энциклопедия БАДов: найдите информацию о биологически активных добавках для здоровья">
-    <meta name="keywords" content="БАДы, Омега-3, магний, витамин D3, цинк, здоровье, биодобавки, энциклопедия">
+    <meta name="description" content="Энциклопедия БАДов: Магний, Цинк, Витамин D3, Омега-3">
+    <meta name="keywords" content="БАДы, Магний, Цинк, Витамин D3, Омега-3, здоровье">
     <title>Энциклопедия БАДов</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #3498db;
@@ -33,364 +34,342 @@
 
         .header {
             text-align: center;
-            padding: 30px 0;
-            background: var(--light);
-            border-bottom: 2px solid var(--border);
-            margin-bottom: 30px;
+            padding: 20px 0;
+            margin-bottom: 20px;
         }
 
-        .header h1 {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-
-        .header p {
+        .header a {
+            text-decoration: none;
+            color: var(--primary);
             font-size: 18px;
-            color: var(--gray);
+            font-weight: 600;
         }
 
-        .search-bar {
-            margin: 20px 0;
-            text-align: center;
+        .header a:hover {
+            text-decoration: underline;
         }
 
-        .search-bar input {
-            width: 100%;
-            max-width: 500px;
-            padding: 10px 15px;
-            font-size: 16px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .search-bar input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
-        }
-
-        .preview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .preview-card {
+        .bad-card {
+            max-width: 800px;
+            margin: 0 auto;
             background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
         }
 
-        .preview-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        .bad-card:hover {
+            transform: translateY(-3px);
         }
 
-        .preview-header {
+        .bad-header {
             background: linear-gradient(135deg, #3498db, #2c3e50);
             color: white;
-            padding: 15px;
-            text-align: center;
+            padding: 25px;
+            position: relative;
         }
 
-        .preview-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin: 0;
-        }
-
-        .preview-subtitle {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-top: 5px;
-        }
-
-        .preview-icon {
-            font-size: 40px;
+        .bad-title {
+            font-size: 28px;
+            font-weight: 700;
             margin-bottom: 10px;
         }
 
-        .no-results {
+        .bad-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .bad-benefits {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .bad-benefits h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .bad-benefits-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .bad-benefits-item i {
+            margin-right: 10px;
+            font-size: 18px;
+            color: white;
+        }
+
+        .bad-body {
+            padding: 25px;
+        }
+
+        .bad-section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 25px;
+        }
+
+        .bad-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .section-content {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .section-content ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .section-content li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+            list-style-type: none;
+        }
+
+        .section-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .emoji-key {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 18px;
+            vertical-align: middle;
+        }
+
+        .science-fact {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 15px;
+        }
+
+        .science-fact strong {
+            color: var(--primary);
+        }
+
+        .error-message {
+            color: #e74c3c;
             text-align: center;
-            color: var(--gray);
             font-size: 16px;
             margin: 20px 0;
         }
 
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 28px;
-            }
+        .bad-list {
+            display: grid;
+            gap: 20px;
+        }
 
-            .header p {
+        .bad-preview {
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .header a {
                 font-size: 16px;
             }
 
-            .search-bar input {
-                max-width: 100%;
+            .bad-header {
+                padding: 20px;
             }
 
-            .preview-grid {
-                grid-template-columns: 1fr;
+            .bad-title {
+                font-size: 24px;
+            }
+
+            .bad-body {
+                padding: 20px;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Энциклопедия БАДов</h1>
-            <p>Найдите информацию о биологически активных добавках для вашего здоровья</p>
-        </div>
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Поиск по названию БАДа...">
-        </div>
-        <div id="preview-grid" class="preview-grid"></div>
+    <div id="bad-encyclopedia">
+        <!-- Контент загрузится через JS -->
     </div>
 
     <script>
-        // Встроенные данные
-        const data = {
-            "bad_cards": [
-{
-      "id": "omega-3",
-      "title": "Омега-3",
-      "subtitle": "ПНЖК для сердца и мозга",
-      "icon": "fas fa-fish",
-      "link": "./omega3.html"
-    },
-    {
-      "id": "magnesium",
-      "title": "Магний",
-      "subtitle": "Для нервов и мышц",
-      "icon": "fas fa-bolt",
-      "link": "./magnesium.html"
-    },
-    {
-      "id": "d3",
-      "title": "Витамин D3",
-      "subtitle": "Иммунитет и кости",
-      "icon": "fas fa-sun",
-      "link": "./d3.html"
-    },
-    {
-      "id": "b12",
-      "title": "Витамин B12",
-      "subtitle": "Энергия и кровь",
-      "icon": "fas fa-battery-three-quarters",
-      "link": "./b12.html"
-    },
-    {
-      "id": "probiotics",
-      "title": "Пробиотики",
-      "subtitle": "Микробиом кишечника",
-      "icon": "fas fa-bacteria",
-      "link": "./probiotics.html"
-    },
-    {
-      "id": "collagen",
-      "title": "Коллаген",
-      "subtitle": "Кожа и суставы",
-      "icon": "fas fa-spa",
-      "link": "./collagen.html"
-    },
-    {
-      "id": "zinc",
-      "title": "Цинк",
-      "subtitle": "Иммунитет и гормоны",
-      "icon": "fas fa-shield-alt",
-      "link": "./zinc.html"
-    },
-    {
-      "id": "curcumin",
-      "title": "Куркумин",
-      "subtitle": "Противовоспалительное",
-      "icon": "fas fa-fire",
-      "link": "./curcumin.html"
-    },
-    {
-      "id": "coq10",
-      "title": "Коэнзим Q10",
-      "subtitle": "Энергия клеток",
-      "icon": "fas fa-heartbeat",
-      "link": "./coq10.html"
-    },
-    {
-      "id": "melatonin",
-      "title": "Мелатонин",
-      "subtitle": "Регулятор сна",
-      "icon": "fas fa-moon",
-      "link": "./melatonin.html"
-    },
-    {
-      "id": "ashwagandha",
-      "title": "Ашваганда",
-      "subtitle": "Антистресс адаптоген",
-      "icon": "fas fa-leaf",
-      "link": "./ashwagandha.html"
-    },
-    {
-      "id": "iron",
-      "title": "Железо",
-      "subtitle": "Кровь и энергия",
-      "icon": "fas fa-tint",
-      "link": "./iron.html"
-    },
-    {
-      "id": "l-carnitine",
-      "title": "L-карнитин",
-      "subtitle": "Энергия и метаболизм",
-      "icon": "fas fa-running",
-      "link": "./l-carnitine.html"
-    },
-    {
-      "id": "vitamin-c",
-      "title": "Витамин C",
-      "subtitle": "Антиоксидант и иммунитет",
-      "icon": "fas fa-virus-slash",
-      "link": "./vitamin-c.html"
-    },
-    {
-      "id": "vitamin-k2",
-      "title": "Витамин K2",
-      "subtitle": "Для костей и сосудов",
-      "icon": "fas fa-bone",
-      "link": "./vitamin-k2.html"
-    },
-    {
-      "id": "calcium",
-      "title": "Кальций",
-      "subtitle": "Кости и зубы",
-      "icon": "fas fa-tooth",
-      "link": "./calcium.html"
-    },
-    {
-      "id": "selenium",
-      "title": "Селен",
-      "subtitle": "Антиоксидант и щитовидка",
-      "icon": "fas fa-shield-virus",
-      "link": "./selenium.html"
-    },
-    {
-      "id": "iodine",
-      "title": "Йод",
-      "subtitle": "Для щитовидной железы",
-      "icon": "fas fa-cloud-sun",
-      "link": "./iodine.html"
-    },
-    {
-      "id": "5-htp",
-      "title": "5-HTP",
-      "subtitle": "Сон и настроение",
-      "icon": "fas fa-cloud-moon",
-      "link": "./5-htp.html"
-    },
-    {
-      "id": "glucosamine",
-      "title": "Глюкозамин",
-      "subtitle": "Здоровье суставов",
-      "icon": "fas fa-joint",
-      "link": "./glucosamine.html"
-    },
-    {
-      "id": "maca",
-      "title": "Мака перуанская",
-      "subtitle": "Энергия и либидо",
-      "icon": "fas fa-heart",
-      "link": "./maca.html"
-    },
-    {
-      "id": "gingko",
-      "title": "Гинкго Билоба",
-      "subtitle": "Кровообращение и память",
-      "icon": "fas fa-brain",
-      "link": "./gingko.html"
-    },
-    {
-      "id": "milk-thistle",
-      "title": "Расторопша",
-      "subtitle": "Поддержка печени",
-      "icon": "fas fa-leaf",
-      "link": "./milk-thistle.html"
-    },
-    {
-      "id": "electrolytes",
-      "title": "Электролиты",
-      "subtitle": "Гидратация и баланс",
-      "icon": "fas fa-tint",
-      "link": "./electrolytes.html"
-    },
-    {
-      "id": "quercetin",
-      "title": "Кверцетин",
-      "subtitle": "Антигистаминный эффект",
-      "icon": "fas fa-wind",
-      "link": "./quercetin.html"
-    },
-    {
-      "id": "berberine",
-      "title": "Берберин",
-      "subtitle": "Обмен веществ",
-      "icon": "fas fa-fire-alt",
-      "link": "./berberine.html"
-    },
-    {
-      "id": "taurine",
-      "title": "Таурин",
-      "subtitle": "Энергия и сердце",
-      "icon": "fas fa-heartbeat",
-      "link": "./taurine.html"
-    }
-    
-            ]
-        };
+        const DATA_URL = "https://raw.githubusercontent.com/MikeSilver1452/bad-encyclopedia/main/data/bads.json";
 
-        function renderPreviews(cards) {
-            const previewGrid = document.getElementById('preview-grid');
-            previewGrid.innerHTML = '';
+        async function loadBads() {
+            try {
+                const response = await fetch(`${DATA_URL}?t=${new Date().getTime()}`);
+                if (!response.ok) throw new Error("Ошибка сети");
+                const data = await response.json();
+                if (!Array.isArray(data)) throw new Error("Данные не в нужном формате");
+                localStorage.setItem('lastGoodData', JSON.stringify(data));
+                return data;
+            } catch (error) {
+                const cached = localStorage.getItem('lastGoodData');
+                if (cached) return JSON.parse(cached);
+                throw error;
+            }
+        }
 
-            if (cards.length === 0) {
-                previewGrid.innerHTML = '<p class="no-results">Ничего не найдено</p>';
+        function renderBads(bads, badId = null) {
+            const container = document.getElementById('bad-encyclopedia');
+            if (!bads || !Array.isArray(bads)) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 50px; color: #e74c3c;">
+                        <h3>Ошибка загрузки</h3>
+                        <p>Данные недоступны</p>
+                        <button onclick="init()" 
+                                style="padding: 10px 20px;
+                                       background: #3498db;
+                                       color: white;
+                                       border: none;
+                                       border-radius: 4px;
+                                       cursor: pointer;">
+                            Попробовать снова
+                        </button>
+                    </div>
+                `;
                 return;
             }
 
-            cards.forEach(card => {
-                const cardDiv = document.createElement('div');
-                cardDiv.className = 'preview-card';
-                cardDiv.innerHTML = `
-                    <div class="preview-header">
-                        <i class="${card.icon} preview-icon"></i>
-                        <h2 class="preview-title">${card.title}</h2>
-                        <div class="preview-subtitle">${card.subtitle}</div>
+            if (badId) {
+                const bad = bads.find(item => item.id === badId);
+                if (!bad) {
+                    container.innerHTML = `
+                        <div style="text-align: center; padding: 50px; color: #e74c3c;">
+                            <h3>БАД не найден</h3>
+                            <a href="?">Вернуться к энциклопедии</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = `
+                    <div class="container">
+                        <div class="header">
+                            <a href="?">← Вернуться к энциклопедии</a>
+                        </div>
+                        <div class="bad-card">
+                            <div class="bad-header">
+                                <h1 class="bad-title">${bad.name}</h1>
+                                <div class="bad-subtitle">${bad.subtitle}</div>
+                                <div class="bad-benefits">
+                                    <h3>Полезные свойства</h3>
+                                    ${bad.benefits.map(benefit => `
+                                        <div class="bad-benefits-item">
+                                            <i class="${benefit.icon}"></i>
+                                            ${benefit.description}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            <div class="bad-body">
+                                ${bad.sections.map(section => `
+                                    <div class="bad-section">
+                                        <h2 class="section-title"><i class="${section.icon}"></i> ${section.title}</h2>
+                                        <div class="section-content">
+                                            ${section.content.description ? `<p>${section.content.description.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>')}</p>` : ''}
+                                            ${section.content.list ? `
+                                                <ul>
+                                                    ${section.content.list.map(item => `
+                                                        <li>
+                                                            ${item.emoji ? `<span class="emoji-key">${item.emoji}</span>` : ''}
+                                                            ${item.title ? `<strong>${item.title}:</strong> ${item.description}` : item.description}
+                                                        </li>
+                                                    `).join('')}
+                                                </ul>
+                                            ` : ''}
+                                            ${section.content.additional ? `<p>${section.content.additional}</p>` : ''}
+                                            ${section.content.science_fact ? `
+                                                <div class="science-fact">
+                                                    <strong>Научный факт:</strong> ${section.content.science_fact}
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
                     </div>
                 `;
-                cardDiv.addEventListener('click', () => {
-                    window.location.href = card.link;
-                });
-                previewGrid.appendChild(cardDiv);
-            });
+            } else {
+                container.innerHTML = `
+                    <div class="container">
+                        <div class="header">
+                            <h1>Энциклопедия БАДов</h1>
+                        </div>
+                        <div class="bad-list">
+                            ${bads.map(item => `
+                                <div class="bad-card bad-preview" onclick="window.location.search='?id=${item.id}'">
+                                    <div class="bad-header">
+                                        <h3 class="bad-title"><i class="${item.icon}"></i> ${item.name}</h3>
+                                        <p>${item.description}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
         }
 
-        function handleSearch() {
-            const searchInput = document.getElementById('search-input').value.toLowerCase();
-            const filteredCards = data.bad_cards.filter(card => 
-                card.title.toLowerCase().includes(searchInput) || 
-                card.subtitle.toLowerCase().includes(searchInput)
-            );
-            renderPreviews(filteredCards);
+        async function init() {
+            try {
+                const bads = await loadBads();
+                const urlParams = new URLSearchParams(window.location.search);
+                const badId = urlParams.get('id');
+                renderBads(bads, badId);
+            } catch (error) {
+                document.getElementById('bad-encyclopedia').innerHTML = `
+                    <div style="text-align: center; padding: 50px; color: #e74c3c;">
+                        <h3>Ошибка загрузки</h3>
+                        <p>${error.message}</p>
+                        <button onclick="init()" 
+                                style="padding: 10px 20px;
+                                       background: #3498db;
+                                       color: white;
+                                       border: none;
+                                       border-radius: 4px;
+                                       cursor: pointer;">
+                            Попробовать снова
+                        </button>
+                    </div>
+                `;
+            }
         }
 
-        document.getElementById('search-input').addEventListener('input', handleSearch);
-
-        // Инициализация
-        window.onload = () => renderPreviews(data.bad_cards);
+        window.onload = init;
     </script>
 </body>
 </html>
