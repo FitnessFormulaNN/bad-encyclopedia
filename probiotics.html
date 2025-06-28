@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Пробиотики: штаммы, польза для микробиома, кишечника и иммунитета">
+    <meta name="keywords" content="Пробиотики, микробиом, кишечник, иммунитет, биодобавки">
+    <title>Пробиотики | Энциклопедия БАДов</title>
+    <style>
+        /* Ваши оригинальные стили без изменений */
+        :root {
+            --primary: #3498db;
+            --primary-light: #ebf5fb;
+            --secondary: #2ecc71;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --gray: #7f8c8d;
+            --border: #e0e0e0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+        .header a {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .header a:hover {
+            text-decoration: underline;
+        }
+        .bad-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .bad-header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 25px;
+            position: relative;
+        }
+        .bad-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .bad-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .bad-benefits {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .bad-benefits h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: white;
+        }
+        .bad-benefits-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .bad-benefits-item i {
+            margin-right: 10px;
+            font-size: 18px;
+            color: white;
+        }
+        .bad-body {
+            padding: 25px;
+        }
+        .bad-section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 25px;
+        }
+        .bad-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        .section-content {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        .section-content ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .section-content li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+            list-style-type: none;
+        }
+        .section-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .emoji-key {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 18px;
+            vertical-align: middle;
+        }
+        .science-fact {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 15px;
+        }
+        .science-fact strong {
+            color: var(--primary);
+        }
+        .error-message {
+            color: #e74c3c;
+            text-align: center;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            .header a {
+                font-size: 16px;
+            }
+            .bad-header {
+                padding: 20px;
+            }
+            .bad-title {
+                font-size: 24px;
+            }
+            .bad-body {
+                padding: 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="./index.html">← Вернуться к энциклопедии</a>
+        </div>
+        <div id="bad-list"></div>
+    </div>
+
+    <script>
+        // Исправленные данные (ключ "bad_boys" как в оригинале)
+        const data = {
+            "bad_boys": [
+                {
+                    "id": "probiotics",
+                    "title": "Пробиотики",
+                    "subtitle": "Живые микроорганизмы для микробиома и иммунитета",
+                    "benefits": [
+                        {"icon": "fas fa-bacteria", "description": "Восстановление микробиоты"},
+                        {"icon": "fas fa-shield-virus", "description": "Укрепление иммунитета"},
+                        {"icon": "fas fa-stomach", "description": "Улучшение пищеварения"},
+                        {"icon": "fas fa-pills", "description": "Синтез витаминов"},
+                        {"icon": "fas fa-allergies", "description": "Снижение аллергий"}
+                    ],
+                    "sections": [
+                        {
+                            "title": "Общее описание",
+                            "icon": "fas fa-info-circle",
+                            "content": {
+                                "description": "Пробиотики — живые микроорганизмы, которые приносят пользу здоровью при приеме в адекватных количествах. Основные штаммы включают Lactobacillus, Bifidobacterium и Saccharomyces boulardii.<br><br>Они конкурируют с патогенами за питательные вещества и рецепторы адгезии, производят антимикробные вещества (бактериоцины) и модулируют иммунный ответ. Эффективность зависит от конкретного штамма и дозировки (обычно 1-10 млрд КОЕ/сут).",
+                                "science_fact": "Пробиотики снижают риск антибиотик-ассоциированной диареи на 42% (Journal of the American Medical Association, 2012)."
+                            }
+                        },
+                        {
+                            "title": "Основные штаммы",
+                            "icon": "fas fa-vial",
+                            "content": {
+                                "list": [
+                                    {"title": "Lactobacillus", "description": "L. acidophilus, L. rhamnosus GG (для ЖКТ и иммунитета)"},
+                                    {"title": "Bifidobacterium", "description": "B. longum, B. infantis (для детей и СРК)"},
+                                    {"title": "Saccharomyces boulardii", "description": "Дрожжевой пробиотик против диареи"},
+                                    {"title": "Мультиштаммовые комплексы", "description": "VSL#3, Culturelle (для комплексного воздействия)"}
+                                ],
+                                "science_fact": "L. rhamnosus GG сокращает длительность диареи у детей на 26 часов (Pediatrics, 2013)."
+                            }
+                        },
+                        {
+                            "title": "Польза для здоровья",
+                            "icon": "fas fa-heartbeat",
+                            "content": {
+                                "list": [
+                                    {"emoji": "🦠", "title": "Микробиом", "description": "Восстановление после антибиотиков и дисбактериоза"},
+                                    {"emoji": "🛡️", "title": "Иммунитет", "description": "Увеличение sIgA и активности NK-клеток"},
+                                    {"emoji": "🤢", "title": "СРК", "description": "Снижение вздутия и болей (B. infantis 35624)"},
+                                    {"emoji": "🧠", "title": "Мозг", "description": "Улучшение настроения через ось кишечник-мозг"},
+                                    {"emoji": "👶", "title": "Дети", "description": "Профилактика колик и экземы"},
+                                    {"emoji": "🌸", "title": "Женское здоровье", "description": "Профилактика молочницы и ИМП"}
+                                ],
+                                "science_fact": "Пробиотики снижают риск экземы у детей на 22% при приеме матерью во время беременности (British Journal of Dermatology, 2018)."
+                            }
+                        },
+                        {
+                            "title": "Рекомендации по приему",
+                            "icon": "fas fa-prescription-bottle-alt",
+                            "content": {
+                                "description": "Оптимальные схемы приема:",
+                                "list": [
+                                    {"title": "Общая профилактика", "description": "1-10 млрд КОЕ/сут (курс 1-2 месяца)"},
+                                    {"title": "С антибиотиками", "description": "Прием с интервалом 2 часа (S. boulardii + Lactobacillus)"},
+                                    {"title": "СРК", "description": "B. infantis 35624 (1×10⁸ КОЕ/сут 8 недель)"},
+                                    {"title": "Иммунитет", "description": "L. casei Shirota (6.5×10⁹ КОЕ/сут)"}
+                                ],
+                                "additional": "Принимать утром натощак или перед сном. Хранить в холодильнике (кроме термоустойчивых штаммов)."
+                            }
+                        },
+                        {
+                            "title": "Комбинирование",
+                            "icon": "fas fa-capsules",
+                            "content": {
+                                "description": "Лучшие синергичные добавки:",
+                                "list": [
+                                    {"title": "Пребиотики", "description": "Инулин, ФОС (питательная среда для пробиотиков)"},
+                                    {"title": "Коллаген", "description": "Восстановление слизистой кишечника"},
+                                    {"title": "Куркумин", "description": "Противовоспалительный эффект"},
+                                    {"title": "Витамин D", "description": "Усиление иммуномодуляции"}
+                                ],
+                                "science_fact": "Комбинация пробиотиков + пребиотиков увеличивает выживаемость бактерий в ЖКТ на 35% (Nutrients, 2020)."
+                            }
+                        },
+                        {
+                            "title": "Противопоказания",
+                            "icon": "fas fa-exclamation-triangle",
+                            "content": {
+                                "description": "Ограничения к применению:",
+                                "list": [
+                                    {"description": "Синдром избыточного бактериального роста (SIBO)"},
+                                    {"description": "Иммунодефициты (риск бактериемии)"},
+                                    {"description": "Острый панкреатит"},
+                                    {"description": "Индивидуальная непереносимость"}
+                                ],
+                                "additional": "Возможны временные эффекты (вздутие, газообразование) в первые 3-5 дней приема.",
+                                "science_fact": "Пробиотики безопасны при беременности (уровень доказательности A) (Journal of Clinical Gastroenterology, 2020)."
+                            }
+                        },
+                        {
+                            "title": "Выбор качественного продукта",
+                            "icon": "fas fa-check-circle",
+                            "content": {
+                                "list": [
+                                    {"description": "Указание конкретных штаммов (не только рода, но и вида)"},
+                                    {"description": "Титр ≥1×10⁹ КОЕ на конец срока годности"},
+                                    {"description": "Капсулы с кишечнорастворимой оболочкой"},
+                                    {"description": "Отсутствие аллергенов (глютен, соя, молоко)"},
+                                    {"description": "Сертификаты GMP, NSF"}
+                                ],
+                                "additional": "Хранить в холодильнике (кроме специальных термостабильных формул)."
+                            }
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Оригинальный скрипт без изменений
+        function loadBADs() {
+            try {
+                const badList = document.getElementById('bad-list');
+                if (!data.bad_boys || !Array.isArray(data.bad_boys)) {
+                    throw new Error('Invalid data structure: bad_boys array is missing or not an array');
+                }
+
+                data.bad_boys.forEach(card => {
+                    const cardDiv = document.createElement('div');
+                    cardDiv.className = 'bad-card';
+
+                    const headerDiv = document.createElement('div');
+                    headerDiv.className = 'bad-header';
+                    headerDiv.innerHTML = `
+                        <h1 class="bad-title">${card.title}</h1>
+                        <div class="bad-subtitle">${card.subtitle}</div>
+                        <div class="bad-benefits">
+                            <h3>Полезные свойства</h3>
+                            ${card.benefits.map(benefit => `
+                                <div class="bad-benefits-item">
+                                    <i class="${benefit.icon}"></i>
+                                    ${benefit.description}
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    cardDiv.appendChild(headerDiv);
+
+                    const bodyDiv = document.createElement('div');
+                    bodyDiv.className = 'bad-body';
+
+                    card.sections.forEach(section => {
+                        const sectionDiv = document.createElement('div');
+                        sectionDiv.className = 'bad-section';
+                        sectionDiv.innerHTML = `
+                            <h2 class="section-title"><i class="${section.icon}"></i> ${section.title}</h2>
+                            <div class="section-content">
+                                ${section.content.description ? `<p>${section.content.description.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>')}</p>` : ''}
+                                ${section.content.list ? `
+                                    <ul>
+                                        ${section.content.list.map(item => `
+                                            <li>
+                                                ${item.emoji ? `<span class="emoji-key">${item.emoji}</span>` : ''}
+                                                ${item.title ? `<strong>${item.title}:</strong> ${item.description}` : item.description}
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                ` : ''}
+                                ${section.content.additional ? `<p>${section.content.additional}</p>` : ''}
+                                ${section.content.science_fact ? `
+                                    <div class="science-fact">
+                                        <strong>Научный факт:</strong> ${section.content.science_fact}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `;
+                        bodyDiv.appendChild(sectionDiv);
+                    });
+
+                    cardDiv.appendChild(bodyDiv);
+                    badList.appendChild(cardDiv);
+                });
+            } catch (error) {
+                console.error('Error rendering BADs:', error);
+                const badList = document.getElementById('bad-list');
+                badList.innerHTML = `
+                    <p class="error-message">
+                        Не удалось отобразить данные. Ошибка: ${error.message}<br>
+                        Проверьте правильность структуры данных в скрипте.
+                    </p>
+                `;
+            }
+        }
+
+        window.onload = loadBADs;
+    </script>
+</body>
+</html>
