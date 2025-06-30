@@ -3,405 +3,885 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Магний: польза для нервной системы, мышц и энергии. Биохимия, дозировка, советы">
-    <meta name="keywords" content="Магний, нервы, мышцы, энергия, биохимия, биодобавки">
-    <title>Магний | Энциклопедия БАДов</title>
+    <title>Магний | Полный научный обзор</title>
     <style>
         :root {
-            --primary: #3498db;
-            --primary-light: #ebf5fb;
-            --secondary: #2ecc71;
-            --dark: #2c3e50;
-            --light: #f8f9fa;
-            --gray: #7f8c8d;
-            --border: #e0e0e0;
+            --primary: #00b7eb;
+            --primary-dark: #0095c7;
+            --primary-light: #e1f7ff;
+            --text-dark: #2D3748;
+            --text-light: #4A5568;
+            --light-bg: #F7FAFC;
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+            --warning: #e74c3c;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            background-color: #f5f7fa;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
             padding: 20px;
             margin: 0;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .header {
-            text-align: center;
-            padding: 20px 0;
-            margin-bottom: 20px;
+        .back-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background-color: var(--text-dark);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            border: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
 
-        .header a {
-            text-decoration: none;
-            color: var(--primary);
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .header a:hover {
-            text-decoration: underline;
+        .back-button:hover {
+            transform: translateY(-2px);
         }
 
         .bad-card {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
+            background: var(--white);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
+        /* Шапка */
         .bad-header {
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-            color: white;
-            padding: 25px;
-            position: relative;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 20px 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bad-header-text {
+            flex: 1;
+            padding-right: 60px;
         }
 
         .bad-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-size: 54px;
+            font-weight: 800;
+            margin: 0 0 16px;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
         }
 
         .bad-subtitle {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        .bad-benefits {
-            background: rgba(255, 255, 255, 0.25);
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        .bad-benefits h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
-            color: white;
-        }
-
-        .bad-benefits-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .bad-benefits-item i {
-            margin-right: 10px;
-            font-size: 18px;
-            color: white;
-        }
-
-        .bad-body {
-            padding: 25px;
-        }
-
-        .bad-section {
-            margin-bottom: 25px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 25px;
-        }
-
-        .bad-section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .section-title {
             font-size: 20px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 15px;
+            opacity: 0.95;
+            margin: 0;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .bad-image {
+            width: 300px;
+            height: 300px;
+            background: var(--white);
+            border-radius: 12px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
 
-        .section-title i {
-            margin-right: 10px;
-            font-size: 24px;
+        .bad-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
-        .section-content {
-            font-size: 16px;
-            line-height: 1.7;
+        /* Плашки */
+        .benefits-container {
+            padding: 24px 40px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
         }
 
-        .section-content ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-
-        .section-content li {
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 15px;
-    list-style-type: none; /* Убирает чёрную точку */
-}
-.section-content li:before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-    font-weight: bold;
-}
-
-        .emoji-key {
-            display: inline-block;
-            margin-right: 8px;
-            font-size: 18px;
-            vertical-align: middle;
-        }
-
-        .science-fact {
-            background: var(--primary-light);
-            border-left: 4px solid var(--primary);
-            padding: 15px;
+        .benefit-plate {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: var(--white);
             border-radius: 8px;
-            margin: 15px 0;
-            font-size: 15px;
-        }
-
-        .science-fact strong {
-            color: var(--primary);
-        }
-
-        .error-message {
-            color: #e74c3c;
-            text-align: center;
+            padding: 14px 24px;
             font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            flex: 1;
+            min-width: 160px;
+            transition: transform 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,183,235,0.3);
+        }
+
+        /* Контентная область */
+        .content-area {
+            padding: 40px;
+        }
+
+        /* Вкладки */
+        .tabs-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .tab-button {
+            background: transparent;
+            border: none;
+            padding: 14px 28px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: var(--primary-dark);
+            background: rgba(0,183,235,0.1);
+        }
+
+        .tab-button.active {
+            color: var(--white);
+            background: var(--primary);
+            box-shadow: 0 2px 8px rgba(0,183,235,0.3);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Типографика контента */
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 24px 0;
+            color: var(--primary-dark);
+            line-height: 1.3;
+        }
+
+        .text-content {
+            line-height: 1.7;
+            font-size: 17px;
+            color: var(--text-dark);
+        }
+
+        .text-content p {
+            margin: 0 0 20px;
+        }
+
+        .text-content ul {
+            margin: 0 0 24px;
+            padding-left: 24px;
+            list-style-type: none;
+        }
+
+        .text-content li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .text-content strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* Научные блоки */
+        .research-card {
+            background: var(--primary-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .research-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mechanism-list {
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 20px;
             margin: 20px 0;
         }
 
-        @media (max-width: 768px) {
-            .header a {
-                font-size: 16px;
-            }
+        .warning-note {
+            background-color: #FDEDEC;
+            border-left: 4px solid var(--warning);
+            padding: 18px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
 
+        .warning-title {
+            font-weight: 600;
+            color: #c0392b;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Таблица */
+        .dosage-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .dosage-table th, .dosage-table td {
+            padding: 14px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dosage-table th {
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .dosage-table tr:nth-child(even) {
+            background-color: rgba(247,250,252,0.5);
+        }
+
+        .source-link {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted var(--primary);
+        }
+
+        .source-link:hover {
+            border-bottom-style: solid;
+        }
+
+        /* Новые элементы */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 12px 16px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .interactions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        
+        .interaction-card {
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 16px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .deficiency-list {
+            columns: 2;
+            column-gap: 32px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 1024px) {
             .bad-header {
-                padding: 20px;
+                padding: 40px 32px;
             }
+            
+            .bad-header-text {
+                padding-right: 40px;
+            }
+            
+            .bad-image {
+                width: 260px;
+                height: 260px;
+            }
+            
+            .content-area {
+                padding: 32px;
+            }
+        }
 
+        @media (max-width: 768px) {
+            .bad-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 24px;
+            }
+            
+            .bad-header-text {
+                padding-right: 0;
+                margin-bottom: 24px;
+            }
+            
             .bad-title {
+                font-size: 36px;
+            }
+            
+            .bad-subtitle {
+                font-size: 18px;
+            }
+            
+            .bad-image {
+                width: 240px;
+                height: 240px;
+                margin: 0 auto;
+            }
+            
+            .benefits-container {
+                padding: 20px 24px;
+            }
+            
+            .benefit-plate {
+                min-width: calc(50% - 10px);
+                padding: 12px 16px;
+            }
+            
+            .content-area {
+                padding: 28px 24px;
+            }
+            
+            .section-title {
                 font-size: 24px;
             }
+            
+            .deficiency-list {
+                columns: 1;
+            }
+        }
 
-            .bad-body {
-                padding: 20px;
+        @media (max-width: 480px) {
+            .bad-header {
+                padding: 32px 20px;
+            }
+            
+            .bad-title {
+                font-size: 28px;
+            }
+            
+            .bad-image {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .benefit-plate {
+                min-width: 100%;
+            }
+            
+            .tab-button {
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+            
+            .interactions-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <button class="back-button" onclick="window.history.back()" aria-label="Назад">
+        ←
+    </button>
+    
     <div class="container">
-        <div class="header">
-            <a href="./index.html">← Вернуться к энциклопедии</a>
+        <div class="bad-card">
+            <!-- Шапка -->
+            <div class="bad-header">
+                <div class="bad-header-text">
+                    <h1 class="bad-title">Магний</h1>
+                    <div class="bad-subtitle">Полный научный обзор: от биохимии до клинического применения</div>
+                </div>
+                <div class="bad-image">
+                    <img src="https://FitnessFormulaNN.github.io/bad-encyclopedia/png/magnesium.png" alt="Магний" loading="lazy">
+                </div>
+            </div>
+            
+            <!-- Плашки -->
+            <div class="benefits-container">
+                <div class="benefit-plate">Энергетический обмен</div>
+                <div class="benefit-plate">Нервная система</div>
+                <div class="benefit-plate">Мышечная функция</div>
+                <div class="benefit-plate">Сердечный ритм</div>
+                <div class="benefit-plate">Синтез ДНК</div>
+            </div>
+            
+            <!-- Контент -->
+            <div class="content-area">
+                <div class="tabs-buttons">
+                    <button class="tab-button active" data-tab="description">Основное</button>
+                    <button class="tab-button" data-tab="mechanism">Механизм действия</button>
+                    <button class="tab-button" data-tab="research">Исследования</button>
+                    <button class="tab-button" data-tab="practice">Практика</button>
+                </div>
+                
+                <!-- Вкладка "Основное" -->
+                <div id="description" class="tab-content active">
+                    <h2 class="section-title">Биохимические основы</h2>
+                    <div class="text-content">
+                        <p>Магний (Mg²⁺) — четвертый по распространенности катион в организме и второй по содержанию в клетке после калия. Участвует в:</p>
+                        <ul>
+                            <li><strong>Более 600 ферментативных реакциях</strong>, включая все ATP-зависимые процессы</li>
+                            <li><strong>Синтезе макромолекул</strong> (ДНК, РНК, белки)</li>
+                            <li><strong>Антиоксидантной защите</strong> через систему глутатиона</li>
+                            <li><strong>Поддержании ионного баланса</strong> (антагонист кальция, синергист калия)</li>
+                        </ul>
+                        
+                        <div class="research-card">
+                            <div class="research-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                                Метаболизм магния
+                            </div>
+                            <p>Организм взрослого содержит ~25 г магния (50-60% в костях, 40-50% в мягких тканях, 1% во внеклеточной жидкости). Суточный оборот: 100-300 мг. Всасывается преимущественно в тощей и подвздошной кишке (30-50% от потребленного). Выводится почками с возможностью реабсорбции при дефиците.</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="section-title">Причины и симптомы дефицита</h2>
+                    <div class="text-content">
+                        <h3>Основные причины дефицита:</h3>
+                        <ul>
+                            <li><strong>Недостаточное потребление</strong> (<260 мг/сут) из-за бедных магнием почв и рафинированных продуктов</li>
+                            <li><strong>Заболевания ЖКТ</strong> (целиакия, болезнь Крона, синдром короткой кишки)</li>
+                            <li><strong>Эндокринные нарушения</strong> (гиперальдостеронизм, диабет)</li>
+                            <li><strong>Прием лекарств</strong> (диуретики, ИПП, химиотерапия, иммунодепрессанты)</li>
+                            <li><strong>Повышенные потери</strong> (алкоголизм, гипергидроз, лактация)</li>
+                        </ul>
+                        
+                        <h3>Клинические проявления дефицита:</h3>
+                        <div class="deficiency-list">
+                            <ul>
+                                <li><strong>Нервно-мышечные:</strong> судороги, тремор, парестезии, мышечная слабость</li>
+                                <li><strong>Кардиологические:</strong> аритмии, тахикардия, повышение АД</li>
+                                <li><strong>Неврологические:</strong> мигрени, тревожность, бессонница, депрессия</li>
+                                <li><strong>Метаболические:</strong> инсулинорезистентность, гипокалиемия</li>
+                                <li><strong>Другие:</strong> усталость, запоры, предменструальный синдром</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h2 class="section-title">Пищевые источники магния</h2>
+                    <div class="text-content">
+                        <p>Лучшие пищевые источники магния (содержание на 100 г продукта):</p>
+                        <ul>
+                            <li><strong>Тыквенные семечки</strong> — 535 мг</li>
+                            <li><strong>Отруби пшеничные</strong> — 448 мг</li>
+                            <li><strong>Какао-порошок</strong> — 425 мг</li>
+                            <li><strong>Кунжут</strong> — 351 мг</li>
+                            <li><strong>Миндаль</strong> — 270 мг</li>
+                            <li><strong>Кешью</strong> — 267 мг</li>
+                            <li><strong>Гречка</strong> — 231 мг</li>
+                            <li><strong>Темный шоколад (70%)</strong> — 228 мг</li>
+                            <li><strong>Кедровые орехи</strong> — 227 мг</li>
+                            <li><strong>Соя</strong> — 226 мг</li>
+                            <li><strong>Фасоль</strong> — 140-160 мг</li>
+                            <li><strong>Шпинат</strong> — 79 мг</li>
+                            <li><strong>Авокадо</strong> — 29 мг</li>
+                            <li><strong>Бананы</strong> — 27 мг</li>
+                        </ul>
+                        <p>Биодоступность магния из пищи составляет 30-50%. Фитиновая и щавелевая кислоты (в злаках, шпинате) снижают усвоение.</p>
+                    </div>
+                </div>
+                
+                <!-- Вкладка "Механизм действия" -->
+                <div id="mechanism" class="tab-content">
+                    <h2 class="section-title">Молекулярные механизмы действия</h2>
+                    <div class="text-content">
+                        <p>Магний действует как кофактор, структурный компонент и регулятор ионного баланса через несколько ключевых механизмов:</p>
+                        
+                        <div class="mechanism-list">
+                            <h3>1. Энергетический метаболизм</h3>
+                            <ul>
+                                <li><strong>ATP-зависимые процессы:</strong> Mg²⁺ стабилизирует структуру ATP, образуя комплекс Mg-ATP (основная форма "энергетической валюты" клетки)</li>
+                                <li><strong>Гликолиз:</strong> активирует ключевые ферменты - гексокиназу, фосфофруктокиназу, пируваткиназу</li>
+                                <li><strong>Цикл Кребса:</strong> кофактор для изоцитратдегидрогеназы, α-кетоглутаратдегидрогеназы</li>
+                                <li><strong>Окислительное фосфорилирование:</strong> необходим для работы ATP-синтазы</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mechanism-list">
+                            <h3>2. Нейромышечная регуляция</h3>
+                            <ul>
+                                <li><strong>NMDA-рецепторы:</strong> Mg²⁺ блокирует ионный канал в состоянии покоя, предотвращая эксайтотоксичность</li>
+                                <li><strong>Кальциевые каналы:</strong> конкурентное ингибирование входа Ca²⁺ в клетку (расслабление мышц)</li>
+                                <li><strong>Na⁺/K⁺-АТФаза:</strong> активация фермента поддерживает мембранный потенциал</li>
+                                <li><strong>Ацетилхолиновые рецепторы:</strong> модуляция чувствительности</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mechanism-list">
+                            <h3>3. Генетическая регуляция</h3>
+                            <ul>
+                                <li><strong>Синтез ДНК/РНК:</strong> кофактор ДНК- и РНК-полимераз, топоизомераз</li>
+                                <li><strong>Репарация ДНК:</strong> участие в системе ферментов репарации</li>
+                                <li><strong>Эпигенетика:</strong> регуляция ДНК-метилтрансфераз</li>
+                            </ul>
+                        </div>
+                        
+                        <h2 class="section-title">Сравнение форм магния</h2>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Форма</th>
+                                    <th>Биодоступность</th>
+                                    <th>Элементарный Mg</th>
+                                    <th>Основные показания</th>
+                                    <th>Побочные эффекты</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Цитрат</strong></td>
+                                    <td>Высокая (~45%)</td>
+                                    <td>16.2%</td>
+                                    <td>Запоры, дефицит Mg, мигрени</td>
+                                    <td>Может вызывать диарею</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Глицинат</strong></td>
+                                    <td>Высокая (~50%)</td>
+                                    <td>14.1%</td>
+                                    <td>Стресс, бессонница, хронический дефицит</td>
+                                    <td>Минимальные</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Малат</strong></td>
+                                    <td>Средняя (~30%)</td>
+                                    <td>15.4%</td>
+                                    <td>Фибромиалгия, хроническая усталость</td>
+                                    <td>Редко тошнота</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Треонат</strong></td>
+                                    <td>Высокая (~40%)</td>
+                                    <td>8.7%</td>
+                                    <td>Когнитивные функции, депрессия</td>
+                                    <td>Дорогостоящий</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Оксид</strong></td>
+                                    <td>Низкая (~4%)</td>
+                                    <td>60.3%</td>
+                                    <td>Запоры (как слабительное)</td>
+                                    <td>Диарея, плохая усвояемость</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Вкладка "Исследования" -->
+                <div id="research" class="tab-content">
+                    <h2 class="section-title">Ключевые клинические исследования</h2>
+                    <div class="text-content">
+                        <div class="research-card">
+                            <div class="research-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                Meta-анализ (2017)
+                            </div>
+                            <p>Анализ 40 исследований (1 млн участников) показал:</p>
+                            <ul>
+                                <li>Высокое потребление Mg связано со снижением риска:</li>
+                                <li>- Инсульта на 12% (RR 0.88, 95% CI 0.82-0.94)</li>
+                                <li>- Сахарного диабета 2 типа на 19% (RR 0.81, 95% CI 0.77-0.86)</li>
+                                <li>- ИБС на 10% (RR 0.90, 95% CI 0.82-0.98)</li>
+                            </ul>
+                            <p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5852744/" class="source-link" target="_blank">Оригинальное исследование</a></p>
+                        </div>
+                        
+                        <div class="research-card">
+                            <div class="research-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                Migraine Study (2021)
+                            </div>
+                            <p>Рандомизированное двойное слепое плацебо-контролируемое исследование (140 пациентов с мигренью):</p>
+                            <ul>
+                                <li>600 мг цитрата магния в день в течение 3 месяцев</li>
+                                <li>Результаты:</li>
+                                <li>- Снижение частоты приступов на 41.6% (vs 15.8% в группе плацебо)</li>
+                                <li>- Уменьшение интенсивности боли на 3.2 балла (по 10-балльной шкале)</li>
+                                <li>- Уменьшение продолжительности приступов на 34%</li>
+                            </ul>
+                            <p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7551876/" class="source-link" target="_blank">Оригинальное исследование</a></p>
+                        </div>
+                        
+                        <div class="research-card">
+                            <div class="research-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                Arrhythmia Trial (2020)
+                            </div>
+                            <p>Исследование с участием 1,360 пациентов с фибрилляцией предсердий:</p>
+                            <ul>
+                                <li>Прием 400 мг Mg + калия в течение 6 месяцев</li>
+                                <li>Результаты:</li>
+                                <li>- Снижение эпизодов аритмии на 54% (p < 0.001)</li>
+                                <li>- Улучшение качества жизни (p < 0.01)</li>
+                                <li>- Снижение частоты госпитализаций на 32%</li>
+                            </ul>
+                            <p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7352515/" class="source-link" target="_blank">Оригинальное исследование</a></p>
+                        </div>
+                        
+                        <div class="research-card">
+                            <div class="research-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                Sleep Study (2019)
+                            </div>
+                            <p>Исследование 100 пациентов с бессонницей:</p>
+                            <ul>
+                                <li>500 мг глицината магния перед сном в течение 8 недель</li>
+                                <li>Результаты:</li>
+                                <li>- Увеличение времени сна на 36 минут (p = 0.002)</li>
+                                <li>- Снижение времени засыпания на 41%</li>
+                                <li>- Улучшение качества сна по шкале PSQI (p < 0.001)</li>
+                            </ul>
+                            <p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6910806/" class="source-link" target="_blank">Оригинальное исследование</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Вкладка "Практика" -->
+                <div id="practice" class="tab-content">
+                    <h2 class="section-title">Практические рекомендации</h2>
+                    <div class="text-content">
+                        <h3>Оптимальные дозировки при различных состояниях</h3>
+                        <table class="dosage-table">
+                            <thead>
+                                <tr>
+                                    <th>Состояние</th>
+                                    <th>Форма</th>
+                                    <th>Дозировка (элем. Mg)</th>
+                                    <th>Длительность</th>
+                                    <th>Комментарии</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Профилактика дефицита</td>
+                                    <td>Цитрат/глицинат</td>
+                                    <td>200-300 мг/сут</td>
+                                    <td>Постоянно</td>
+                                    <td>С витамином B6 для улучшения усвоения</td>
+                                </tr>
+                                <tr>
+                                    <td>Судороги/мигрень</td>
+                                    <td>Цитрат/таурат</td>
+                                    <td>400-600 мг/сут</td>
+                                    <td>3-6 месяцев</td>
+                                    <td>Разделить на 2-3 приема</td>
+                                </tr>
+                                <tr>
+                                    <td>Бессонница/стресс</td>
+                                    <td>Глицинат/треонат</td>
+                                    <td>200-400 мг/сут</td>
+                                    <td>Вечером</td>
+                                    <td>Комбинация с мелатонином при бессоннице</td>
+                                </tr>
+                                <tr>
+                                    <td>Аритмии</td>
+                                    <td>Цитрат/оротат</td>
+                                    <td>300-500 мг/сут</td>
+                                    <td>С контролем ЭКГ</td>
+                                    <td>Совместно с калием</td>
+                                </tr>
+                                <tr>
+                                    <td>Запоры</td>
+                                    <td>Оксид/гидроксид</td>
+                                    <td>300-400 мг/сут</td>
+                                    <td>По потребности</td>
+                                    <td>Принимать с большим количеством воды</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h3>Лекарственные взаимодействия</h3>
+                        <div class="interactions-grid">
+                            <div class="interaction-card">
+                                <strong>Диуретики</strong>
+                                <p>Тиазидные (гидрохлоротиазид) и петлевые (фуросемид) увеличивают экскрецию Mg²⁺ на 30-50%. Требуется коррекция дозы.</p>
+                            </div>
+                            <div class="interaction-card">
+                                <strong>Ингибиторы протонной помпы</strong>
+                                <p>Длительный прием (более 1 года) снижает всасывание Mg²⁺ на 50-80% из-за изменения pH желудка.</p>
+                            </div>
+                            <div class="interaction-card">
+                                <strong>Бисфосфонаты</strong>
+                                <p>Mg²⁺ уменьшает всасывание алендроната, ризедроната. Интервал между приемами ≥2 часа.</p>
+                            </div>
+                            <div class="interaction-card">
+                                <strong>Антибиотики</strong>
+                                <p>Образует нерастворимые комплексы с тетрациклинами (доксициклин) и хинолонами (ципрофлоксацин). Интервал ≥4 часа.</p>
+                            </div>
+                            <div class="interaction-card">
+                                <strong>Сердечные гликозиды</strong>
+                                <p>Дефицит Mg усиливает токсичность дигоксина. Нормализация уровня Mg снижает риск аритмий.</p>
+                            </div>
+                            <div class="interaction-card">
+                                <strong>Миорелаксанты</strong>
+                                <p>Mg потенцирует действие блокаторов нейромышечной передачи (сукцинилхолин).</p>
+                            </div>
+                        </div>
+                        
+                        <h3>Протокол восполнения дефицита</h3>
+                        <div class="text-content">
+                            <ol>
+                                <li><strong>Острая коррекция (4-8 недель):</strong>
+                                    <ul>
+                                        <li>Цитрат магния 300-600 мг/сут в 2-3 приема</li>
+                                        <li>Витамин B6 50-100 мг/сут для улучшения усвоения</li>
+                                        <li>Прием во время еды для уменьшения ЖКТ-побочек</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Поддерживающая терапия:</strong>
+                                    <ul>
+                                        <li>Глицинат или малат магния 200-400 мг/сут</li>
+                                        <li>Контроль уровня Mg каждые 3-6 месяцев</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Лабораторная диагностика:</strong>
+                                    <ul>
+                                        <li>Сывороточный Mg (норма: 0.7-1.1 ммоль/л) - не всегда отражает дефицит</li>
+                                        <li>Эритроцитарный Mg (оптимально 1.65-2.5 ммоль/л) - более точный маркер</li>
+                                        <li>Суточная экскреция Mg с мочой (<1.5 ммоль/сут - дефицит)</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                        
+                        <div class="warning-note">
+                            <div class="warning-title">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                Меры предосторожности
+                            </div>
+                            <ul>
+                                <li><strong>Почечная недостаточность:</strong> риск гипермагниемии (контроль уровня Mg)</li>
+                                <li><strong>Миастения гравис:</strong> Mg может ухудшать нервно-мышечную передачу</li>
+                                <li><strong>Блокада сердца:</strong> осторожность при AV-блокаде II-III степени</li>
+                                <li><strong>Гипермагниемия:</strong> симптомы (гипотония, брадикардия, угнетение дыхания) при уровне >2.5 ммоль/л</li>
+                                <li><strong>Беременность:</strong> безопасен в дозах до 350 мг/сут, высокие дозы могут вызывать диарею</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="bad-list"></div>
     </div>
 
     <script>
-        // Встроенные данные
-        const data = {
-            "bad_boys": [
-                {
-                    "id": "magnesium",
-                    "title": "Магний",
-                    "subtitle": "Минерал для нервной системы, мышц и энергии",
-                    "benefits": [
-                        {"icon": "fas fa-brain", "description": "Поддержка нервной системы"},
-                        {"icon": "fas fa-dumbbell", "description": "Расслабление мышц"},
-                        {"icon": "fas fa-bolt", "description": "Производство энергии"},
-                        {"icon": "fas fa-heart", "description": "Здоровье сердца"},
-                        {"icon": "fas fa-bed", "description": "Улучшение сна"}
-                    ],
-                    "sections": [
-                        {
-                            "title": "Общее описание",
-                            "icon": "fas fa-info-circle",
-                            "content": {
-                                "description": "Магний (Mg²⁺) — макроэлемент, участвующая в более чем 600 биохимических реакциях. Он регулирует нервно-мышечную передачу, энергетический обмен и синтез белков. Около 60% магния находится в костях, 39% в клетках и 1% в плазме.<br><br><strong>Биохимические реакции в организме:</strong><br>1. <strong>Энергия метаболизм</strong>: Магний является кофактором для ферментов, участвующих в синтезе АТФ (например, аденилатциклаза, фосфофруктокиназа). Он стабилизирует АТФ в митохондриях.<br>2. <strong>Нервная система</strong>: Магний блокирует NMDA-рецепторы, предотвращая перевозбуждение нейронов, и регулирует высвобождение нейротрансмиттеров (GABA, глутамат).<br>3. <strong>Мысливая функция</strong>: Магний расслабляет мышцы, противодействуя кальцию в актино-миозиновом комплексе, и предотвращает спазмы.<br>4. <strong>Сердечно-сосудистая система</strong>: Магний регулирует ионные каналы (K⁺, Ca²⁺), поддерживая сердечный ритм и снижая давление.<br>5. <strong>Синтез ДНК и белков</strong>: Магний стабилизирует рибосомы и ДНК-полимеразу, обеспечивая репликацию и транскрипцию.<br><br><strong>Клиническое значение</strong>: Дефицит магния (<0,75 ммоль/л в плазме) вызывает судороги, усталость, аритмии и гипертонию. Факторы риска: стресс, диабет, низкое потребление с пищей. Нутрициологам важно учитывать биодоставность форм магния (цитрат vs. оксид) и баланс с кальцием (соотношение 2:1).",
-                                "science_fact": "Магний снижает частоту мигреней на 41% при приеме 400 мг/сут (Cephalalgia, 2016)."
-                            }
-                        },
-                        {
-                            "title": "Источники магния",
-                            "icon": "fas fa-bolt",
-                            "content": {
-                                "list": [
-                                    {"title": "Орехи и семена", "description": "миндаль, кешью, тыквенные семечки (150-400 мг/100 г)"},
-                                    {"title": "Зеленые овощи", "description": "шпинат, брокколи (20-80 мг/г)"},
-                                    {"title": "Цельнозерновые", "description": "овес, киноа, коричневый рис (40-100 мг/г)"},
-                                    {"title": "Бобовые", "description": "черная фасоль, чечевица (50-120 мг/г)"},
-                                    {"title": "Добавки", "description": "цитрат, глицинат, малат магния (100-400 мг элементарного магния)"}
-                                ],
-                                "science_fact": "Цитрат магния усваивается на 30% лучше, чем оксид магния (Journal of the American College of Nutrition, 2001)."
-                            }
-                        },
-                        {
-                            "title": "Польза для здоровья",
-                            "icon": "fas fa-heartbeat",
-                            "content": {
-                                "list": [
-                                    {"emoji": "🧠", "title": "Нервная система", "description": "снижает стресс, тревожность и частоту мигреней"},
-                                    {"emoji": "💪", "title": "Мышцы", "description": "предотвращает судороги и спазмы"},
-                                    {"emoji": "⚡", "title": "Энергия", "description": "улучшает метаболизм и снижает усталость"},
-                                    {"emoji": "❤️", "title": "Сердце", "description": "регулирует давление и сердечный ритм"},
-                                    {"emoji": "😴", "title": "Сон", "description": "улучшает качество сна"},
-                                    {"emoji": "🦴", "title": "Кости", "description": "поддерживает плотность костей"}
-                                ],
-                                "science_fact": "Магний улучшает сон у пожилых на 20% при приеме 500 мг/сут (Journal of Research in Medical Sciences, 2012)."
-                            }
-                        },
-                        {
-                            "title": "Рекомендации по применению",
-                            "icon": "fas fa-prescription-bottle-alt",
-                            "content": {
-                                "description": "Дозировка магния зависит от возраста, пола и состояния здоровья. Общие рекомендации по элементарному магнию:",
-                                "list": [
-                                    {"title": "Дети (4-8 лет)", "description": "130-240 мг/сут"},
-                                    {"title": "Взрослые мужчины", "description": "400-420 мг/сут"},
-                                    {"title": "Взрослые женщины", "description": "310-360 мг/сут"},
-                                    {"title": "При дефиците или стрессе", "description": "400-600 мг/сут"}
-                                ],
-                                "additional": "Как принимать: с пищей для лучшего усвоения, разделите дозу на 2 приема для предотвращения диареи. Для нутрициологов: учитывайте уровень магния в эритроцитах при хронических симптомах."
-                            }
-                        },
-                        {
-                            "title": "Комбинирование с другими добавками",
-                            "icon": "fas fa-capsules",
-                            "content": {
-                                "description": "Магний хорошо сочетается с другими добавками:",
-                                "list": [
-                                    {"title": "Витамин D3", "description": "усиливает усвоение кальция и магния"},
-                                    {"title": "Кальций", "description": "поддерживает здоровье костей (соотношение 2:1)"},
-                                    {"title": "Витамин B6", "description": "улучшает усвоение магния и нервную функцию"},
-                                    {"title": "Омега-3", "description": "снижает воспаление и поддерживает сердце"}
-                                ],
-                                "science_fact": "Комбинация магния и витамина B6 улучшает симптомы ПМС на 40% (Journal of Women’s Health, 1991)."
-                            }
-                        },
-                        {
-                            "title": "Противопоказания и меры предосторожности",
-                            "icon": "fas fa-exclamation-triangle",
-                            "content": {
-                                "description": "Магний безопасен в рекомендуемых дозах, но есть ограничения:",
-                                "list": [
-                                    {"description": "Почечная недостаточность — риск гипермагниемии"},
-                                    {"description": "Высокие дозы (>600 мг/сут) — риск диареи"},
-                                    {"description": "Взаимодействие с антибиотиками (тетрациклины) — снижает абсорбцию"},
-                                    {"description": "Брадикардия или миастения — требуется консультация врача"}
-                                ],
-                                "additional": "Побочные эффекты: диарея, тошнота при высоких дозах. Для нутрициологов: начинайте с низких доз при чувствительном ЖКТ.",
-                                "science_fact": "Передозировка магния редка и возникает при дозах >5000 мг/сут (Nutrients, 2015)."
-                            }
-                        },
-                        {
-                            "title": "Как выбрать качественный продукт",
-                            "icon": "fas fa-check-circle",
-                            "content": {
-                                "list": [
-                                    {"description": "Выбирайте хелатные формы (цитрат, глицинат, малат) для лучшего усвоения"},
-                                    {"description": "Проверяйте содержание элементарного магния (100-400 мг/доза)"},
-                                    {"description": "Избегайте оксида магния — низкая биодоступность"},
-                                    {"description": "Ищите сертификаты качества (GMP, USP)"},
-                                    {"description": "Проверяйте отсутствие аллергенов и наполнителей"}
-                                ],
-                                "additional": "Храните в сухом месте. Срок годности обычно 2-3 года."
-                            }
-                        }
-                    ]
-                }
-            ]
-        };
-
-        function loadBADs() {
-            try {
-                const badList = document.getElementById('bad-list');
-
-                if (!data.bad_boys || !Array.isArray(data.bad_boys)) {
-                    throw new Error('Invalid data structure: bad_boys array is missing or not an array');
-                }
-
-                data.bad_boys.forEach(card => {
-                    const cardDiv = document.createElement('div');
-                    cardDiv.className = 'bad-card';
-
-                    const headerDiv = document.createElement('div');
-                    headerDiv.className = 'bad-header';
-                    headerDiv.innerHTML = `
-                        <h1 class="bad-title">${card.title}</h1>
-                        <div class="bad-subtitle">${card.subtitle}</div>
-                        <div class="bad-benefits">
-                            <h3>Полезные свойства</h3>
-                            ${card.benefits.map(benefit => `
-                                <div class="bad-benefits-item">
-                                    <i class="${benefit.icon}"></i>
-                                    ${benefit.description}
-                                </div>
-                            `).join('')}
-                        </div>
-                    `;
-                    cardDiv.appendChild(headerDiv);
-
-                    const bodyDiv = document.createElement('div');
-                    bodyDiv.className = 'bad-body';
-
-                    card.sections.forEach(section => {
-                        const sectionDiv = document.createElement('div');
-                        sectionDiv.className = 'bad-section';
-                        sectionDiv.innerHTML = `
-                            <h2 class="section-title"><i class="${section.icon}"></i> ${section.title}</h2>
-                            <div class="section-content">
-                                ${section.content.description ? `<p>${section.content.description.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>')}</p>` : ''}
-                                ${section.content.list ? `
-                                    <ul>
-                                        ${section.content.list.map(item => `
-                                            <li>
-                                                ${item.emoji ? `<span class="emoji-key">${item.emoji}</span>` : ''}
-                                                ${item.title ? `<strong>${item.title}:</strong> ${item.description}` : item.description}
-                                            </li>
-                                        `).join('')}
-                                    </ul>
-                                ` : ''}
-                                ${section.content.additional ? `<p>${section.content.additional}</p>` : ''}
-                                ${section.content.science_fact ? `
-                                    <div class="science-fact">
-                                        <strong>Научный факт:</strong> ${section.content.science_fact}
-                                    </div>
-                                ` : ''}
-                            </div>
-                        `;
-                        bodyDiv.appendChild(sectionDiv);
-                    });
-
-                    cardDiv.appendChild(bodyDiv);
-                    badList.appendChild(cardDiv);
+        // Плавное переключение вкладок
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                if (button.classList.contains('active')) return;
+                
+                const tabsComponent = button.closest('.content-area');
+                
+                // Обновляем активную кнопку
+                tabsComponent.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
                 });
-            } catch (error) {
-                console.error('Error rendering BADs:', error);
-                const badList = document.getElementById('bad-list');
-                badList.innerHTML = `
-                    <p class="error-message">
-                        Не удалось отобразить данные. Ошибка: ${error.message}<br>
-                        Проверьте правильность структуры данных в скрипте.
-                    </p>
-                `;
-            }
-        }
-
-        window.onload = loadBADs;
+                button.classList.add('active');
+                
+                // Плавное переключение контента
+                const currentActive = tabsComponent.querySelector('.tab-content.active');
+                const newActive = document.getElementById(button.getAttribute('data-tab'));
+                
+                if (currentActive) {
+                    currentActive.style.opacity = '0';
+                    currentActive.style.transform = 'translateY(10px)';
+                    
+                    setTimeout(() => {
+                        currentActive.classList.remove('active');
+                        newActive.classList.add('active');
+                        newActive.style.opacity = '1';
+                        newActive.style.transform = 'translateY(0)';
+                    }, 200);
+                }
+            });
+        });
     </script>
 </body>
 </html>
