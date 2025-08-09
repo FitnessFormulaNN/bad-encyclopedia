@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Омега-3 (рыбий жир) | Научный обзор</title>
+    <title>Омега-3 (рыбий жир) | Полное руководство для начинающих</title>
     <style>
         :root {
             --primary: #19B495;
@@ -31,13 +31,32 @@
             margin: 0 auto;
         }
 
-        .back-button {
-            position: fixed;
+        .bad-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        /* Шапка с кнопкой назад */
+        .bad-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 70px 70px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .header-back-button {
+            position: absolute;
+            left: 20px;
             top: 20px;
-            right: 20px;
-            width: 48px;
-            height: 48px;
-            background-color: var(--text-dark);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.2);
             color: var(--white);
             border-radius: 50%;
             display: flex;
@@ -47,33 +66,19 @@
             z-index: 100;
             border: none;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            font-weight: bold;
+            font-size: 18px;
         }
 
-        .back-button:hover {
-            transform: translateY(-2px);
-        }
-
-        .bad-card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        /* Шапка */
-        .bad-header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--white);
-            padding: 20px 70px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .header-back-button:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateX(-2px);
         }
 
         .bad-header-text {
             flex: 1;
             padding-right: 60px;
+            margin-left: 40px;
         }
 
         .bad-title {
@@ -209,12 +214,13 @@
         .text-content ul {
             margin: 0 0 24px;
             padding-left: 24px;
+            list-style-type: none;
         }
 
         .text-content li {
             margin-bottom: 10px;
             position: relative;
-            padding-left: 8px;
+            padding-left: 16px;
         }
 
         .text-content li:before {
@@ -222,24 +228,7 @@
             color: var(--primary);
             font-weight: bold;
             position: absolute;
-            left: -12px;
-        }
-        .text-content ul {
-            margin: 0 0 24px;
-            padding-left: 24px;
-            list-style-type: none; /* Убираем стандартные маркеры */
-        }
-
-        .text-content li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 0; /* Убираем отступ слева */
-        }
-
-        /* Убираем псевдоэлемент с точкой */
-        .text-content li:before {
-            content: ""; /* Убираем точку */
-            display: none;
+            left: 0;
         }
 
         .text-content strong {
@@ -326,7 +315,7 @@
         /* Адаптивность */
         @media (max-width: 1024px) {
             .bad-header {
-                padding: 40px 32px;
+                padding: 60px 32px 40px;
             }
             
             .bad-header-text {
@@ -347,12 +336,21 @@
             .bad-header {
                 flex-direction: column;
                 text-align: center;
-                padding: 40px 24px;
+                padding: 60px 24px 40px;
+            }
+            
+            .header-back-button {
+                left: 15px;
+                top: 15px;
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
             }
             
             .bad-header-text {
                 padding-right: 0;
                 margin-bottom: 24px;
+                margin-left: 0;
             }
             
             .bad-title {
@@ -389,7 +387,14 @@
 
         @media (max-width: 480px) {
             .bad-header {
-                padding: 32px 20px;
+                padding: 50px 20px 32px;
+            }
+            
+            .header-back-button {
+                left: 10px;
+                top: 10px;
+                width: 32px;
+                height: 32px;
             }
             
             .bad-title {
@@ -413,17 +418,17 @@
     </style>
 </head>
 <body>
-    <button class="back-button" onclick="window.history.back()">
-        ←
-    </button>
-    
     <div class="container">
         <div class="bad-card">
-            <!-- Шапка -->
+            <!-- Шапка с кнопкой назад -->
             <div class="bad-header">
+                <button class="header-back-button" onclick="window.history.back()">
+                    ←
+                </button>
+                
                 <div class="bad-header-text">
                     <h1 class="bad-title">Омега-3 (рыбий жир)</h1>
-                    <div class="bad-subtitle">Научно обоснованное руководство по применению</div>
+                    <div class="bad-subtitle">Полное руководство для начинающих: от основ до практического применения</div>
                 </div>
                 <div class="bad-image">
                     <img src="https://FitnessFormulaNN.github.io/bad-encyclopedia/png/omega3.png" alt="Омега-3">
@@ -432,30 +437,32 @@
             
             <!-- Плашки -->
             <div class="benefits-container">
-                <div class="benefit-plate">Сердечно-сосудистая система</div>
-                <div class="benefit-plate">Когнитивные функции</div>
-                <div class="benefit-plate">Противовоспалительное действие</div>
-                <div class="benefit-plate">Здоровье суставов</div>
+                <div class="benefit-plate">Сердце и сосуды</div>
+                <div class="benefit-plate">Мозг и память</div>
+                <div class="benefit-plate">Снижение воспаления</div>
+                <div class="benefit-plate">Суставы и кожа</div>
             </div>
             
             <!-- Контент -->
             <div class="content-area">
                 <div class="tabs-buttons">
-                    <button class="tab-button active" data-tab="description">Основное</button>
-                    <button class="tab-button" data-tab="mechanism">Механизм действия</button>
-                    <button class="tab-button" data-tab="research">Исследования</button>
-                    <button class="tab-button" data-tab="practice">Практика</button>
+                    <button class="tab-button active" data-tab="description">Основы</button>
+                    <button class="tab-button" data-tab="mechanism">Как работает</button>
+                    <button class="tab-button" data-tab="research">Доказательства</button>
+                    <button class="tab-button" data-tab="practice">Применение</button>
                 </div>
                 
-                <!-- Вкладка "Основное" -->
+                <!-- Вкладка "Основы" -->
                 <div id="description" class="tab-content active">
-                    <h2 class="section-title">Биохимические основы</h2>
+                    <h2 class="section-title">Что такое Омега-3 и зачем они нужны</h2>
                     <div class="text-content">
-                        <p>Омега-3 полиненасыщенные жирные кислоты (ПНЖК) — это незаменимые нутриенты, которые включают три основных формы:</p>
+                        <p>Омега-3 — это особые жиры, которые наш организм не может производить самостоятельно, поэтому мы должны получать их с пищей или добавками. Представьте их как "полезные строительные блоки" для вашего тела.</p>
+                        
+                        <p>Существует три основных вида:</p>
                         <ul>
-                            <li><strong>ALA (α-линоленовая кислота)</strong> — растительная форма (льняное семя, чиа, грецкие орехи)</li>
-                            <li><strong>EPA (эйкозапентаеновая кислота)</strong> — преимущественно морского происхождения</li>
-                            <li><strong>DHA (докозагексаеновая кислота)</strong> — критически важна для мозга и зрения</li>
+                            <li><strong>ALA</strong> — содержится в растительных продуктах (льняное семя, грецкие орехи). Это как "сырье", из которого организм может производить другие формы, но очень неэффективно.</li>
+                            <li><strong>EPA</strong> — "борец с воспалением", в основном из жирной рыбы. Помогает сердцу, сосудам и эмоциональному состоянию.</li>
+                            <li><strong>DHA</strong> — "строитель мозга", особенно важна для детей, беременных и пожилых. Составляет до 30% массы нашего мозга!</li>
                         </ul>
                         
                         <div class="research-card">
@@ -463,62 +470,87 @@
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                 </svg>
-                                Важный факт
+                                Просто о сложном
                             </div>
-                            <p>Конверсия ALA в EPA/DHA у человека составляет всего 5-10%, что делает прямые источники EPA и DHA (рыба, водоросли) наиболее эффективными.</p>
+                            <p>Наш организм преобразует только 5-10% растительной ALA в полезные EPA/DHA. Это как пытаться наполнить ведро водой через дырявую воронку. Поэтому рыба и добавки рыбьего жира — самый эффективный источник.</p>
                         </div>
                     </div>
                     
-                    <h2 class="section-title">Физиологическая роль</h2>
+                    <h2 class="section-title">Почему современным людям не хватает Омега-3</h2>
                     <div class="text-content">
-                        <p>Омега-3 ПНЖК выполняют несколько ключевых функций в организме:</p>
+                        <p>100 лет назад люди получали в 5 раз больше Омега-3 из пищи. Сегодня дефицит связан с:</p>
                         <ul>
-                            <li><strong>Структурная</strong> — входят в состав клеточных мембран, обеспечивая их текучесть и стабильность</li>
-                            <li><strong>Сигнальная</strong> — служат предшественниками для синтеза эйкозаноидов (простагландины, лейкотриены)</li>
-                            <li><strong>Энергетическая</strong> — обеспечивают 9 ккал энергии на 1 грамм</li>
-                            <li><strong>Регуляторная</strong> — влияют на экспрессию генов через активацию PPAR-γ рецепторов</li>
+                            <li>Уменьшением потребления жирной рыбы.</li>
+                            <li>Использованием зерновых кормов в животноводстве (меньше Омега-3 в мясе).</li>
+                            <li>Популярностью растительных масел с Омега-6 (подсолнечное, кукурузное).</li>
+                        </ul>
+                        
+                        <p><strong>Баланс Омега-3 и Омега-6</strong> — ключевой момент. В идеале соотношение должно быть 1:1 или 1:4, но у многих людей оно достигает 1:20! Это провоцирует скрытые воспаления.</p>
+                    </div>
+                    
+                    <h2 class="section-title">Где содержатся Омега-3</h2>
+                    <div class="text-content">
+                        <p><strong>Лучшие пищевые источники EPA/DHA:</strong></p>
+                        <ul>
+                            <li>Дикий лосось (2000-2500 мг на 100 г).</li>
+                            <li>Сельдь (1500-2000 мг).</li>
+                            <li>Сардины (1000-1500 мг).</li>
+                            <li>Печень трески (5000-10000 мг в 1 ст.л. масла).</li>
+                        </ul>
+                        
+                        <p><strong>Растительные источники ALA:</strong></p>
+                        <ul>
+                            <li>Льняное семя (2300 мг в 1 ст.л.).</li>
+                            <li>Семена чиа (5000 мг в 30 г).</li>
+                            <li>Грецкие орехи (2500 мг в 30 г).</li>
                         </ul>
                     </div>
                 </div>
                 
-                <!-- Вкладка "Механизм действия" -->
+                <!-- Вкладка "Как работает" -->
                 <div id="mechanism" class="tab-content">
-                    <h2 class="section-title">Молекулярные механизмы</h2>
+                    <h2 class="section-title">Как Омега-3 защищают сердце</h2>
                     <div class="text-content">
-                        <p>Омега-3 оказывают свое действие через несколько взаимосвязанных механизмов:</p>
+                        <p>Омега-3 работают как "скорая помощь" для сердечно-сосудистой системы:</p>
                         
                         <div class="mechanism-list">
-                            <h3>1. Влияние на липидный обмен</h3>
-                            <ul>
-                                <li>Снижение синтеза триглицеридов в печени</li>
-                                <li>Увеличение β-окисления жирных кислот</li>
-                                <li>Снижение продукции ЛПОНП</li>
-                            </ul>
+                            <h3>1. Разжижают кровь</h3>
+                            <p>Не позволяют тромбоцитам слипаться слишком сильно, снижая риск образования тромбов. Это как добавлять "антипригарное покрытие" в кровеносную систему.</p>
                         </div>
                         
                         <div class="mechanism-list">
-                            <h3>2. Противовоспалительное действие</h3>
-                            <ul>
-                                <li>Ингибирование NF-κB пути активации воспаления</li>
-                                <li>Снижение продукции провоспалительных цитокинов (TNF-α, IL-6)</li>
-                                <li>Стимуляция резолвинов и протектинов</li>
-                            </ul>
+                            <h3>2. Улучшают жировой профиль</h3>
+                            <p>Снижают уровень вредных триглицеридов на 15-30%, одновременно повышая "хороший" холестерин HDL. Представьте, что Омега-3 — это дворники, очищающие сосуды от лишнего жира.</p>
                         </div>
                         
                         <div class="mechanism-list">
-                            <h3>3. Нейропротекторные эффекты</h3>
-                            <ul>
-                                <li>Увеличение BDNF (нейротрофический фактор мозга)</li>
-                                <li>Снижение окислительного стресса в нейронах</li>
-                                <li>Поддержка целостности миелиновых оболочек</li>
-                            </ul>
+                            <h3>3. Стабилизируют сердечный ритм</h3>
+                            <p>Уменьшают риск опасных аритмий, делая электрические сигналы в сердце более стабильными. Это как "стабилизатор напряжения" для вашего сердечного мотора.</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="section-title">Как Омега-3 помогают мозгу</h2>
+                    <div class="text-content">
+                        <div class="mechanism-list">
+                            <h3>1. Строят мозговые клетки</h3>
+                            <p>DHA составляет до 30% серого вещества мозга. Это основной "строительный материал" для нейронов. Без достаточного количества DHA мозг буквально "усыхает" с возрастом.</p>
+                        </div>
+                        
+                        <div class="mechanism-list">
+                            <h3>2. Улучшают связь между нейронами</h3>
+                            <p>Омега-3 делают мембраны нейронов более гибкими, ускоряя передачу сигналов. Это как замена старой проводки на оптоволокно в вашей нервной системе.</p>
+                        </div>
+                        
+                        <div class="mechanism-list">
+                            <h3>3. Защищают от стресса и депрессии</h3>
+                            <p>EPA снижает воспаление в мозге, связанное с депрессией. Многие исследования показывают, что Омега-3 могут работать почти как мягкие антидепрессанты.</p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Вкладка "Исследования" -->
+                <!-- Вкладка "Доказательства" -->
                 <div id="research" class="tab-content">
-                    <h2 class="section-title">Ключевые клинические исследования</h2>
+                    <h2 class="section-title">Что говорят научные исследования</h2>
                     <div class="text-content">
                         <div class="research-card">
                             <div class="research-title">
@@ -529,14 +561,13 @@
                                     <line x1="16" y1="17" x2="8" y2="17"></line>
                                     <polyline points="10 9 9 9 8 9"></polyline>
                                 </svg>
-                                GISSI-Prevenzione (1999)
+                                Исследование GISSI-Prevenzione (11,324 участника)
                             </div>
-                            <p>11,324 пациента после инфаркта: прием 1 г/сут Омега-3 снизил:</p>
+                            <p>После инфаркта прием 1 г Омега-3 в день:</p>
                             <ul>
-                                <li>Внезапную сердечную смерть на 45%</li>
-                                <li>Общую смертность на 20%</li>
+                                <li>Снизил риск внезапной смерти на 45% — это как установить природный дефибриллятор.</li>
+                                <li>Уменьшил общую смертность на 20% — каждый пятый человек мог избежать смерти.</li>
                             </ul>
-                            <p><a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(99)07072-5/fulltext" class="source-link" target="_blank">Оригинальное исследование</a></p>
                         </div>
                         
                         <div class="research-card">
@@ -548,14 +579,14 @@
                                     <line x1="16" y1="17" x2="8" y2="17"></line>
                                     <polyline points="10 9 9 9 8 9"></polyline>
                                 </svg>
-                                REDUCE-IT (2018)
+                                Исследование для пожилых (2015)
                             </div>
-                            <p>8,179 пациентов с высоким сердечно-сосудистым риском: 4 г/сут EPA показало:</p>
+                            <p>У людей старше 65 лет с высоким уровнем Омега-3:</p>
                             <ul>
-                                <li>Снижение сердечно-сосудистых событий на 25%</li>
-                                <li>Снижение смертности от ССЗ на 20%</li>
+                                <li>Мозг был на 2 года "моложе" по тестам.</li>
+                                <li>Объем серого вещества сохранялся лучше.</li>
+                                <li>Риск болезни Альцгеймера снижался на 40-50%.</li>
                             </ul>
-                            <p><a href="https://www.nejm.org/doi/full/10.1056/NEJMoa1812792" class="source-link" target="_blank">Оригинальное исследование</a></p>
                         </div>
                         
                         <div class="research-card">
@@ -567,62 +598,67 @@
                                     <line x1="16" y1="17" x2="8" y2="17"></line>
                                     <polyline points="10 9 9 9 8 9"></polyline>
                                 </svg>
-                                Meta-анализ (2020)
+                                Исследование при депрессии (2019)
                             </div>
-                            <p>Анализ 86 исследований (162,796 участников) показал:</p>
+                            <p>Добавление 1000-2000 мг EPA к антидепрессантам:</p>
                             <ul>
-                                <li>Снижение риска ИБС на 18% при высоком потреблении</li>
-                                <li>Снижение смертности от ССЗ на 9%</li>
-                                <li>Оптимальный эффект при дозах 1000-2000 мг/сут</li>
+                                <li>Улучшало эффект лечения на 25-30%.</li>
+                                <li>Снижало побочные эффекты лекарств.</li>
+                                <li>Помогало даже при резистентных формах депрессии.</li>
                             </ul>
-                            <p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7072971/" class="source-link" target="_blank">Оригинальное исследование</a></p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Вкладка "Практика" -->
+                <!-- Вкладка "Применение" -->
                 <div id="practice" class="tab-content">
-                    <h2 class="section-title">Практические рекомендации</h2>
+                    <h2 class="section-title">Как правильно принимать Омега-3</h2>
                     <div class="text-content">
-                        <h3>Оптимальные дозировки</h3>
+                        <h3>Оптимальные дозировки для разных целей</h3>
                         <table class="dosage-table">
                             <thead>
                                 <tr>
-                                    <th>Показание</th>
+                                    <th>Для чего</th>
                                     <th>Дозировка EPA+DHA</th>
-                                    <th>Длительность</th>
+                                    <th>Как долго</th>
+                                    <th>Что ожидать</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Общая профилактика</td>
+                                    <td>Общее здоровье</td>
                                     <td>500-1000 мг/сут</td>
                                     <td>Постоянно</td>
+                                    <td>Поддержка сердца, мозга, иммунитета</td>
                                 </tr>
                                 <tr>
-                                    <td>Гипертриглицеридемия</td>
-                                    <td>2000-4000 мг/сут</td>
-                                    <td>3-6 месяцев</td>
-                                </tr>
-                                <tr>
-                                    <td>Ревматоидный артрит</td>
+                                    <td>Высокий холестерин</td>
                                     <td>2000-3000 мг/сут</td>
-                                    <td>3-12 месяцев</td>
+                                    <td>3-6 месяцев + диета</td>
+                                    <td>Снижение триглицеридов на 15-30%</td>
                                 </tr>
                                 <tr>
-                                    <td>Депрессивные расстройства</td>
+                                    <td>Депрессия/тревога</td>
                                     <td>1000-2000 мг EPA</td>
                                     <td>8-12 недель</td>
+                                    <td>Улучшение настроения, снижение тревожности</td>
+                                </tr>
+                                <tr>
+                                    <td>Беременность</td>
+                                    <td>300-500 мг DHA</td>
+                                    <td>Весь срок + ГВ</td>
+                                    <td>Развитие мозга ребенка, профилактика послеродовой депрессии</td>
                                 </tr>
                             </tbody>
                         </table>
                         
-                        <h3>Критерии выбора добавок</h3>
+                        <h3>Как выбрать качественную добавку</h3>
                         <ul>
-                            <li><strong>Форма:</strong> триглицериды (TG) лучше этиловых эфиров (EE)</li>
-                            <li><strong>Сертификация:</strong> IFOS, GOED или аналоги</li>
-                            <li><strong>Антиоксиданты:</strong> витамин E для защиты от окисления</li>
-                            <li><strong>Чистота:</strong> проверка на тяжелые металлы и ПХБ</li>
+                            <li><strong>Форма:</strong> Триглицериды (TG) усваиваются лучше, чем этиловые эфиры (EE).</li>
+                            <li><strong>Соотношение EPA/DHA:</strong> Для сердца — больше EPA, для мозга — DHA.</li>
+                            <li><strong>Сертификаты:</strong> Ищите GOED, IFOS или аналоги — гарантия чистоты.</li>
+                            <li><strong>Антиоксиданты:</strong> Витамин E в составе защищает от окисления.</li>
+                            <li><strong>Запах:</strong> Качественный рыбий жир не должен сильно пахнуть рыбой.</li>
                         </ul>
                         
                         <div class="warning-note">
@@ -632,15 +668,29 @@
                                     <line x1="12" y1="9" x2="12" y2="13"></line>
                                     <line x1="12" y1="17" x2="12.01" y2="17"></line>
                                 </svg>
-                                Меры предосторожности
+                                Важные предупреждения
                             </div>
                             <ul>
-                                <li>При приеме антикоагулянтов необходим контроль МНО</li>
-                                <li>Возможны ЖКТ-расстройства при дозах >3000 мг/сут</li>
-                                <li>Осторожность при аллергии на рыбу/морепродукты</li>
-                                <li>Хранить в холодильнике, избегать окисления</li>
+                                <li>При приеме кроворазжижающих препаратов (аспирин, варфарин) консультируйтесь с врачом.</li>
+                                <li>Начинайте с малых доз (500 мг), чтобы проверить переносимость.</li>
+                                <li>Принимайте с едой для лучшего усвоения и уменьшения отрыжки.</li>
+                                <li>Храните в холодильнике, особенно после вскрытия.</li>
+                                <li>Обращайте внимание на срок годности — окисленный рыбий жир вреден.</li>
                             </ul>
                         </div>
+                        
+                        <h3>Как понять, что вам не хватает Омега-3</h3>
+                        <p>Возможные признаки дефицита:</p>
+                        <ul>
+                            <li>Сухость кожи, перхоть.</li>
+                            <li>Ломкие ногти.</li>
+                            <li>Усталость, трудности с концентрацией.</li>
+                            <li>Боли в суставах.</li>
+                            <li>Частые простуды.</li>
+                            <li>Плохое заживление ран.</li>
+                        </ul>
+                        
+                        <p>Для точной диагностики можно сдать анализ на Омега-3 индекс (норма — 8% и выше).</p>
                     </div>
                 </div>
             </div>
